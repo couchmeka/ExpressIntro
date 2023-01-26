@@ -72,13 +72,20 @@ const favoriteMovies = favoriteMovieList.map((movie) =>{
           })
           return
         }
-        if (req.body.starRating === undefined || typeof(req.body.starRating) !== "number" ){
+        if (req.body.starRating === undefined || typeof(req.body.starRating) !== 'number' ){
           res.json({
             success: false,
             message: "star rating must be a valid integer"
           })
           return
         }
+        if (req.body.isRecommended === undefined || typeof (req.body.isRecommended) !== 'boolean' ){
+            res.json({
+              success: false,
+              message: "Recommended must be of type boolean"
+            })
+            return
+          }
         
     
       
