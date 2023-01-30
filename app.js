@@ -93,14 +93,16 @@ const favoriteMovies = favoriteMovieList.map((movie) =>{
         newMovie.title = req.body.title
         newMovie.starRating = req.body.starRating
         newMovie.isRecommended = req.body.isRecommended
-        newMovie.createdAt = new Date
-        newMovie.lastModified = new Date
+        newMovie.createdAt = new Date()
+        newMovie.lastModified = new Date()
       
         favoriteMovieList.push(newMovie)
         console.log(favoriteMovieList)
       
         res.json({
-          success: true
+          success: true,
+          newMovieAdded: newMovie,
+          favoriteMovieList: favoriteMovieList
         })
       })
 
@@ -152,7 +154,10 @@ const favoriteMovies = favoriteMovieList.map((movie) =>{
         favoriteMovieList[movieIndex] = updatedMovie
         console.log(favoriteMovieList)
         res.json({
-          success: true
+          success: true,
+          updatedMovie: updatedMovie,
+          favoriteMovieList: favoriteMovieList
+          
         })
       })
       
@@ -172,7 +177,8 @@ const favoriteMovies = favoriteMovieList.map((movie) =>{
       console.log(favoriteMovieList)
 
       res.json({
-        success: true
+        success: true,
+        favoriteMovieList: favoriteMovieList
       })
       })
 
